@@ -1,23 +1,24 @@
 print('''
-Hi mate ! Welcome to Mad Libs !
-Mad Libs is a game with a basic story template that has blank spaces which need to be filled by the player (you <3).
+Hello! Welcome to Mad Libs!
+Mad Libs is a game with a basic story template that has blank spaces which need to be filled by the player.
 The fun part is that the player inputs words without knowing the story ahead of time.
 
 Here are the steps:
-1.Choose one of the templates by choosing a number: 1,2 or 3.
+1.Choose one of the templates by choosing number 1,2 or 3.
 2.Enter words that will match the description provided by the game.
 3.If you are run out of ideas, type 'idk' and the game will enter the word for you.
-4.Enjoy your story !
+4.Enjoy your story!
 
 If you are ready, let's start.
 ''')
 
-choice = input('Choose a number: 1,2 or 3: ')
+choice = input('Choose a template by choosing a number: 1,2 or 3: ')
 while choice != '1' and choice != '2' and choice != '3':
     choice = input('Invalid choice, try again: ')
 
 print('The creation of your story begins now!')
 
+#to generate words if needed
 def get_input(prompt, category):
     user_input = input(prompt)
     if user_input == 'idk':
@@ -41,7 +42,6 @@ def preposition(noun):
         else:
             return prepositions[0] + ' ' + noun
 
-
 import random
 number = [5,9,15,36,48,65,25,45,30,80,44,71,86,99,10,50,33,6,8,22,11,66,79,500]
 measure_of_time = ['second', 'minute', 'hour', 'day', 'week', 'month', 'year', 'decade', 'millenial']
@@ -61,6 +61,7 @@ place = ['house', 'city', 'town', 'country', 'school', 'office', 'library', 'par
 magical_creature = ['dragons', 'unicorns', 'phoenixes', 'griffins', 'goblins', 'elves', 'trolls', 'mermaids', 'centaurs', 'sphinxes', 'faeries', 'nymphs', 'ogres', 'chimeras', 'selkies', 'djinns', 'banshees', 'krakens', 'hydras', 'werewolves']
 room_in_a_house = ['living room', 'kitchen', 'bedroom', 'bathroom', 'dining room', 'office', 'hallway', 'basement', 'attic', 'laundry room', 'garage', 'guest room', 'playroom', 'study room', 'pantry', 'mudroom', 'sunroom', 'media room', 'library']
 
+#template1
 if choice == '1':
     Number = get_input('Number: ', number)
     Measure_of_time = plural(get_input('Measure of time in singular form: ', measure_of_time), Number)
@@ -88,6 +89,7 @@ if choice == '1':
     {Verb} {Noun4} every day for breakfast. The most {Adjective3} thing about being in the hospital is the {Silly_word} {Noun}!
     ''')
 
+#template2
 elif choice == '2':
     Persons_name = get_input("Person's name: ", persons_name)
     Noun = get_input('Noun: ', noun)
@@ -113,6 +115,7 @@ elif choice == '2':
     as a pet! At night we will tell {Number} {Silly_word} stories and roast {Noun2} around the campfire!!
     ''')
 
+#template3
 else:
     Persons_name = get_input("Person's name: ", persons_name)
     Adjective = preposition(get_input('Adjective: ', adjective))
